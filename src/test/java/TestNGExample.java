@@ -16,18 +16,25 @@ public class TestNGExample {
     @Test
     public void LoginPage() {
 
+        // Initialize variable
         String firstProduct, productDetails;
 
+        // Key in Login credential
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
 
-//      Click first item
+        // Click first item
         driver.findElement(By.id("item_4_title_link")).click();
 
+        // Need to verify the page loaded is correct
+        // --------
+
+        // Get Current Product name & details
         firstProduct = driver.findElement(By.className("inventory_details_name")).getText();
         productDetails = driver.findElement(By.className("inventory_details_desc")).getText();
 
+        // Display in report
         System.out.println("Page title: " + driver.getTitle());
         System.out.println("Product : " + firstProduct);
         System.out.println("Product Details : " + productDetails);
